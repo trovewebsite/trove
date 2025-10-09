@@ -8,8 +8,20 @@ const Header: React.FC = () => {
       <Image src="/icons/logo.svg" alt="logo" width={120} height={25} />
 
       <div className="flex gap-4">
-        <Button>Login</Button>
-        <Button>Launch App</Button>
+        <Button
+          className="font-poppins text-primary-foreground text-base"
+          variant="ghost"
+          onClick={() => {}}
+        >
+          Login
+        </Button>
+        <Button
+          className="font-poppins text-base text-black"
+          variant="default"
+          onClick={() => {}}
+        >
+          Launch App
+        </Button>
       </div>
     </div>
   );
