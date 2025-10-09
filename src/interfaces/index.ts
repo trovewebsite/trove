@@ -1,4 +1,5 @@
 export interface ICardProps {
+  chipTitle: string;
   title: string;
   description: string;
   price: number;

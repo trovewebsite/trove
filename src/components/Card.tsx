@@ -11,11 +11,11 @@ const instrument = Instrument_Serif({
 });
 
 const Card: React.FC<ICardProps> = (props) => {
-  const { title, description, price, percentChange } = props;
+  const { chipTitle, title, description, price, percentChange } = props;
   return (
     <div className="rounded-[17px] border-x border-white/20 bg-white/15 pt-4 pr-4 pb-8 pl-8">
       <div className="flex w-full justify-end">
-        <Chip title="Up to 5x" />
+        <Chip title={chipTitle} />
       </div>
       <div className="flex flex-col pt-8 text-start">
         <span className={`${instrument.className} text-[36px] text-white`}>

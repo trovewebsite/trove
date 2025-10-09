@@ -21,6 +21,7 @@ const LiquidMarketsSection: React.FC = () => {
       <div className="grid w-full grid-cols-2 gap-11">
         <div className="col-span-2 lg:col-span-1">
           <Card
+            chipTitle="Up to 5x"
             title="Charizard Holo PSA 10"
             description="The most iconic Pokémon card from the 1999 Base Set"
             price={52450}
@@ -29,6 +30,7 @@ const LiquidMarketsSection: React.FC = () => {
         </div>
         <div className="col-span-2 lg:col-span-1">
           <Card
+            chipTitle="Up to 5x"
             title="1st Edition Booster Pack"
             description="Sealed 1st Edition Base Set booster pack"
             price={8920}
@@ -37,6 +39,7 @@ const LiquidMarketsSection: React.FC = () => {
         </div>
         <div className="col-span-2 lg:col-span-1">
           <Card
+            chipTitle="Up to 5x"
             title="Unlimited Booster Pack"
             description="Sealed Unlimited Base Set booster pack"
             price={1240}
@@ -45,6 +48,7 @@ const LiquidMarketsSection: React.FC = () => {
         </div>
         <div className="col-span-2 lg:col-span-1">
           <Card
+            chipTitle="Up to 10x"
             title="Pokémon Liquid Index"
             description="Weighted index of top 5 most liquid PSA 10 cards"
             price={24680}
