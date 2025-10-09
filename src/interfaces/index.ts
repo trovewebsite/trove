@@ -9,3 +9,9 @@ export interface ICardProps {
 export interface IChipProps {
   title: string;
 }
+
+export interface IGuideCardProps {
+  number: string;
+  title: string;
+  description: string;
+}

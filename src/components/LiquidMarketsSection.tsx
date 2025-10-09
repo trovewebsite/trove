@@ -11,7 +11,9 @@ const instrument = Instrument_Serif({
 const LiquidMarketsSection: React.FC = () => {
   return (
     <div className="mt-[235px] flex w-full max-w-[990px] flex-col items-center gap-11 text-center">
-      <span className={`${instrument.className} text-[80px] text-white`}>
+      <span
+        className={`${instrument.className} text-[80px] leading-[90px] text-white`}
+      >
         Four Highly Liquid Markets
       </span>
       <div className="text-primary-foreground/63 max-w-[600px]">

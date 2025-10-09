@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import TradeSection from "@/components/TradeSection";
 import TradeInsightSection from "@/components/TradeInsightSection";
 import LiquidMarketsSection from "@/components/LiquidMarketsSection";
+import GuideSection from "@/components/GuideSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <TradeSection />
         <TradeInsightSection />
         <LiquidMarketsSection />
+        <GuideSection />
       </div>
     </div>
   );
