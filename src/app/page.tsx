@@ -4,12 +4,16 @@ import React from "react";
 
 // custom components
 import Header from "@/components/Header";
+import TradeSection from "@/components/TradeSection";
 
 export default function Home() {
   return (
     <div className="mx-auto min-h-screen w-full max-w-[1440px] p-2 lg:p-8 xl:p-16">
-      <div className="flex w-full flex-col items-center justify-center gap-4">
+      <div className="sticky top-8 z-10 flex w-full justify-center">
         <Header />
+      </div>
+      <div className="relative mt-[133px] flex h-full w-full flex-col items-center gap-4">
+        <TradeSection />
       </div>
     </div>
   );

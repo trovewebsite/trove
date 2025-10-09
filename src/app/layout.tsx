@@ -21,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} scrollbar-hide`}>
-        <div className="relative z-10 flex min-h-screen flex-col">
-          {children}
-        </div>
+        <div className="relative flex min-h-screen flex-col">{children}</div>
       </body>
     </html>
   );
