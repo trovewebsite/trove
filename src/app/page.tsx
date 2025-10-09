@@ -6,6 +6,7 @@ import React from "react";
 import Header from "@/components/Header";
 import TradeSection from "@/components/TradeSection";
 import TradeInsightSection from "@/components/TradeInsightSection";
+import LiquidMarketsSection from "@/components/LiquidMarketsSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <div className="relative mt-[133px] flex h-full w-full flex-col items-center">
         <TradeSection />
         <TradeInsightSection />
+        <LiquidMarketsSection />
       </div>
     </div>
   );
