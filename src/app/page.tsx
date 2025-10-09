@@ -5,6 +5,7 @@ import React from "react";
 // custom components
 import Header from "@/components/Header";
 import TradeSection from "@/components/TradeSection";
+import TradeInsightSection from "@/components/TradeInsightSection";
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
       <div className="sticky top-8 z-10 flex w-full justify-center">
         <Header />
       </div>
-      <div className="relative mt-[133px] flex h-full w-full flex-col items-center gap-4">
+      <div className="relative mt-[133px] flex h-full w-full flex-col items-center">
         <TradeSection />
+        <TradeInsightSection />
       </div>
     </div>
   );
