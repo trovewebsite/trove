@@ -17,7 +17,7 @@ const Card: React.FC<ICardProps> = (props) => {
       <div className="flex w-full justify-end">
         <Chip title={chipTitle} />
       </div>
-      <div className="flex flex-col pt-8 text-start">
+      <div className="flex flex-col pt-4 text-start">
         <span className={`${instrument.className} text-[36px] text-white`}>
           {title}
         </span>
