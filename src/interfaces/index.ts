@@ -15,3 +15,8 @@ export interface IGuideCardProps {
   title: string;
   description: string;
 }
+
+export interface IIntroductionCardProps {
+  title: string;
+  description: string;
+}

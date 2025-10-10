@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "title": "24/7 Trading",
+    "description": "Trade perpetual futures around the clock with instant execution and no expiry dates."
+  },
+  {
+    "id": 1,
+    "title": "Real Price Discovery",
+    "description": "Oracle aggregates real-world auction data and on-chain activity for fair, manipulation-resistant pricing."
+  },
+  {
+    "id": 2,
+    "title": "Deep Liquidity",
+    "description": "Hybrid order book and AMM pools ensure instant trade execution with minimal slippage."
+  },
+  {
+    "id": 3,
+    "title": "On-Chain Transparency",
+    "description": "All trades, funding rates, and oracle prices published on Hyperliquid blockchain for full verifiability."
+  },
+  {
+    "id": 4,
+    "title": "Up to 10× Leverage",
+    "description": "Amplify your positions with leverage up to 5× for individual assets and 10× for the Liquid Index."
+  },
+  {
+    "id": 5,
+    "title": "Low Fees",
+    "description": "Trading fees as low as 0.05% with 100% of funding fees flowing directly between traders."
+  }
+]
