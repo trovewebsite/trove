@@ -10,52 +10,54 @@ const instrument = Instrument_Serif({
 
 const LiquidMarketsSection: React.FC = () => {
   return (
-    <div className="mt-[235px] flex w-full max-w-[990px] flex-col items-center gap-11 text-center">
-      <span
-        className={`${instrument.className} text-[80px] leading-[90px] text-white`}
-      >
-        Four Highly Liquid Markets
-      </span>
-      <div className="text-primary-foreground/63 max-w-[600px]">
-        Trade perpetual futures on the most sought-after Pokémon collectibles
-        with real-time pricing and deep liquidity.
-      </div>
-      <div className="grid w-full grid-cols-2 gap-11">
-        <div className="col-span-2 lg:col-span-1">
-          <Card
-            chipTitle="Up to 5x"
-            title="Charizard Holo PSA 10"
-            description="The most iconic Pokémon card from the 1999 Base Set"
-            price={52450}
-            percentChange={12.5}
-          />
+    <div className="flex min-h-screen w-full max-w-[990px] items-center justify-center">
+      <div className="flex w-full flex-col items-center gap-11 text-center">
+        <span
+          className={`${instrument.className} text-[80px] leading-[90px] text-white`}
+        >
+          Four Highly Liquid Markets
+        </span>
+        <div className="text-primary-foreground/63 max-w-[600px]">
+          Trade perpetual futures on the most sought-after Pokémon collectibles
+          with real-time pricing and deep liquidity.
         </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Card
-            chipTitle="Up to 5x"
-            title="1st Edition Booster Pack"
-            description="Sealed 1st Edition Base Set booster pack"
-            price={8920}
-            percentChange={8.3}
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Card
-            chipTitle="Up to 5x"
-            title="Unlimited Booster Pack"
-            description="Sealed Unlimited Base Set booster pack"
-            price={1240}
-            percentChange={-2.1}
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Card
-            chipTitle="Up to 10x"
-            title="Pokémon Liquid Index"
-            description="Weighted index of top 5 most liquid PSA 10 cards"
-            price={24680}
-            percentChange={5.7}
-          />
+        <div className="grid w-full grid-cols-2 gap-11">
+          <div className="col-span-2 lg:col-span-1">
+            <Card
+              chipTitle="Up to 5x"
+              title="Charizard Holo PSA 10"
+              description="The most iconic Pokémon card from the 1999 Base Set"
+              price={52450}
+              percentChange={12.5}
+            />
+          </div>
+          <div className="col-span-2 lg:col-span-1">
+            <Card
+              chipTitle="Up to 5x"
+              title="1st Edition Booster Pack"
+              description="Sealed 1st Edition Base Set booster pack"
+              price={8920}
+              percentChange={8.3}
+            />
+          </div>
+          <div className="col-span-2 lg:col-span-1">
+            <Card
+              chipTitle="Up to 5x"
+              title="Unlimited Booster Pack"
+              description="Sealed Unlimited Base Set booster pack"
+              price={1240}
+              percentChange={-2.1}
+            />
+          </div>
+          <div className="col-span-2 lg:col-span-1">
+            <Card
+              chipTitle="Up to 10x"
+              title="Pokémon Liquid Index"
+              description="Weighted index of top 5 most liquid PSA 10 cards"
+              price={24680}
+              percentChange={5.7}
+            />
+          </div>
         </div>
       </div>
     </div>

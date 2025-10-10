@@ -26,7 +26,7 @@ const TradingInterfaceSection: React.FC = () => {
           src="/trading-interface.png"
           alt="Trading Interface"
           width={1200}
-          height={654}
+          height={615}
         />
       </div>
     </div>
