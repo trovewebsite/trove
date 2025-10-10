@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef } from "react";
 import { Instrument_Serif } from "next/font/google";
 
@@ -20,13 +21,6 @@ const TradeSection: React.FC = () => {
     let ctx: any;
     let gsapAny: any = null;
     let st: any = null;
-    const hoverHandlers: Array<{
-      el: Element;
-      enter: EventListenerOrEventListenerObject;
-      leave: EventListenerOrEventListenerObject;
-      focus: EventListenerOrEventListenerObject;
-      blur: EventListenerOrEventListenerObject;
-    }> = [];
 
     (async () => {
       try {
@@ -85,77 +79,7 @@ const TradeSection: React.FC = () => {
             gsapAny.set(items, { y: 0, autoAlpha: 1 });
           }
 
-          // button hover and focus animation using gsap tweens (apply to all .ts-primary)
-          const primaries = container.querySelectorAll(".ts-primary");
-          if (primaries && primaries.length) {
-            primaries.forEach((primary) => {
-              // base scale handlers
-              const enterScale = () =>
-                gsapAny.to(primary, { scale: 1.05, duration: 0.12 });
-              const leaveScale = () =>
-                gsapAny.to(primary, { scale: 1, duration: 0.12 });
-              const focusScale = () =>
-                gsapAny.to(primary, { scale: 1.03, duration: 0.12 });
-              const blurScale = () =>
-                gsapAny.to(primary, { scale: 1, duration: 0.12 });
-
-              // enhanced handlers for outlined buttons
-              let enter: EventListenerOrEventListenerObject = enterScale;
-              let leave: EventListenerOrEventListenerObject = leaveScale;
-              let onFocus: EventListenerOrEventListenerObject = focusScale;
-              let onBlur: EventListenerOrEventListenerObject = blurScale;
-
-              if (primary.classList.contains("ts-outline")) {
-                enter = () => {
-                  gsapAny.to(primary, {
-                    scale: 1.03,
-                    backgroundColor: "rgba(255,255,255,0.95)",
-                    color: "#000",
-                    borderColor: "rgba(255,255,255,0.95)",
-                    duration: 0.18,
-                  });
-                };
-                leave = () => {
-                  gsapAny.to(primary, {
-                    scale: 1,
-                    backgroundColor: "transparent",
-                    color: "",
-                    borderColor: "",
-                    duration: 0.18,
-                  });
-                };
-                onFocus = () => {
-                  gsapAny.to(primary, {
-                    scale: 1.03,
-                    backgroundColor: "rgba(255,255,255,0.95)",
-                    color: "#000",
-                    duration: 0.12,
-                  });
-                };
-                onBlur = () => {
-                  gsapAny.to(primary, {
-                    scale: 1,
-                    backgroundColor: "transparent",
-                    color: "",
-                    duration: 0.12,
-                  });
-                };
-              }
-
-              primary.addEventListener("mouseenter", enter);
-              primary.addEventListener("mouseleave", leave);
-              primary.addEventListener("focus", onFocus);
-              primary.addEventListener("blur", onBlur);
-
-              hoverHandlers.push({
-                el: primary,
-                enter,
-                leave,
-                focus: onFocus,
-                blur: onBlur,
-              });
-            });
-          }
+          // button animations are handled globally by the shared Button component
         }, containerRef);
       } catch {
         // ignore import/animation failures
@@ -166,16 +90,6 @@ const TradeSection: React.FC = () => {
       try {
         // cleanup gsap context
         if (ctx && typeof ctx.revert === "function") ctx.revert();
-
-        // remove hover handlers
-        hoverHandlers.forEach(({ el, enter, leave, focus, blur }) => {
-          try {
-            el.removeEventListener("mouseenter", enter);
-            el.removeEventListener("mouseleave", leave);
-            el.removeEventListener("focus", focus);
-            el.removeEventListener("blur", blur);
-          } catch {}
-        });
 
         // kill ScrollTrigger if present
         if (st && typeof st.kill === "function") st.kill();
@@ -207,14 +121,14 @@ const TradeSection: React.FC = () => {
 
         <div className="ts-animate flex gap-6">
           <Button
-            className="ts-primary h-full text-base text-black"
+            className="h-full text-base text-black"
             variant="default"
             onClick={() => {}}
           >
             Launch App
           </Button>
           <Button
-            className="ts-primary ts-outline text-primary-foreground border-primary h-full text-base"
+            className="ts-outline text-primary-foreground border-primary h-full text-base"
             variant="outline"
             onClick={() => {}}
           >

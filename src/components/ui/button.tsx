@@ -1,8 +1,12 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+"use client";
 
-import { cn } from "@/lib/utils"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from "react";
+import { useEffect, useRef } from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -32,26 +36,130 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
+    const localRef = useRef<HTMLElement | null>(null);
+
+    // merge forwarded ref and localRef
+    const setRefs = (node: any) => {
+      localRef.current = node;
+      if (!ref) return;
+      if (typeof ref === "function") ref(node);
+      else (ref as any).current = node;
+    };
+
+    useEffect(() => {
+      const el = localRef.current as HTMLElement | null;
+      if (!el) return;
+
+      let gsapAny: any = null;
+
+      const apply = async () => {
+        try {
+          const gsapModule = await import("gsap");
+          gsapAny = gsapModule?.default ?? gsapModule;
+          if (!gsapAny) return;
+
+          // choose animation based on variant
+          const isOutline = variant === "outline";
+
+          const enterHandler = () => {
+            if (isOutline) {
+              gsapAny.to(el, {
+                scale: 1.03,
+                backgroundColor: "rgba(255,255,255,0.95)",
+                color: "#000",
+                borderColor: "rgba(255,255,255,0.95)",
+                duration: 0.18,
+              });
+            } else {
+              gsapAny.to(el, { scale: 1.05, duration: 0.12 });
+            }
+          };
+
+          const leaveHandler = () => {
+            if (isOutline) {
+              gsapAny.to(el, {
+                scale: 1,
+                backgroundColor: "transparent",
+                color: "",
+                borderColor: "",
+                duration: 0.18,
+              });
+            } else {
+              gsapAny.to(el, { scale: 1, duration: 0.12 });
+            }
+          };
+
+          const focusHandler = () => {
+            if (isOutline)
+              gsapAny.to(el, {
+                scale: 1.03,
+                backgroundColor: "rgba(255,255,255,0.95)",
+                color: "#000",
+                duration: 0.12,
+              });
+            else gsapAny.to(el, { scale: 1.03, duration: 0.12 });
+          };
+
+          const blurHandler = () => {
+            if (isOutline)
+              gsapAny.to(el, {
+                scale: 1,
+                backgroundColor: "transparent",
+                color: "",
+                duration: 0.12,
+              });
+            else gsapAny.to(el, { scale: 1, duration: 0.12 });
+          };
+
+          el.addEventListener("mouseenter", enterHandler);
+          el.addEventListener("mouseleave", leaveHandler);
+          el.addEventListener("focus", focusHandler);
+          el.addEventListener("blur", blurHandler);
+
+          // cleanup
+          return () => {
+            try {
+              el.removeEventListener("mouseenter", enterHandler);
+              el.removeEventListener("mouseleave", leaveHandler);
+              el.removeEventListener("focus", focusHandler);
+              el.removeEventListener("blur", blurHandler);
+            } catch {}
+          };
+        } catch {
+          // ignore
+        }
+      };
+
+      const cleanPromise = apply();
+
+      return () => {
+        // if animation import resolved and returned a cleanup, let it run
+        try {
+          (cleanPromise as any)?.then((fn: any) => fn && fn());
+        } catch {}
+      };
+    }, [variant]);
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
+        ref={setRefs}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

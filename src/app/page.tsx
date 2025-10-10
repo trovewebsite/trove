@@ -191,7 +191,7 @@ export default function Home() {
       // prevent default scrolling so we control navigation (requires passive: false)
       try {
         e.preventDefault();
-      } catch (err) {
+      } catch {
         // some browsers may ignore; continue
       }
 
