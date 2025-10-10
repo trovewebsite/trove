@@ -60,8 +60,34 @@ const TradeSection: React.FC = () => {
               scrollTrigger: {
                 trigger: container,
                 start: "top center+=80",
+                // keep default toggleActions but use callbacks to explicitly
+                // restart the timeline when the section is entered from either
+                // direction, and reset it when leaving so the animation is visible
+                // every time the user returns
                 toggleActions: "play none none reverse",
                 markers: false,
+                onEnter: () => {
+                  try {
+                    tl.restart();
+                  } catch {}
+                },
+                onEnterBack: () => {
+                  try {
+                    tl.restart();
+                  } catch {}
+                },
+                onLeave: () => {
+                  try {
+                    tl.pause();
+                    tl.seek(0);
+                  } catch {}
+                },
+                onLeaveBack: () => {
+                  try {
+                    tl.pause();
+                    tl.seek(0);
+                  } catch {}
+                },
               },
             });
 
