@@ -17,7 +17,7 @@ const TradeSection: React.FC = () => {
       <div className="flex w-full flex-col items-center justify-center gap-11 text-center">
         <Chip title="Built on Hyperliquid HIP-3" />
         <div className={`${instrument.className}`}>
-          <p className="text-[100px] text-white">
+          <p className="text-[100px] leading-[110px] text-white">
             Trade <span className="text-primary-foreground">Pokémon</span> Like
             Never Before
           </p>

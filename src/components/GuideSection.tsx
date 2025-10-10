@@ -13,7 +13,7 @@ const GuideSection: React.FC = () => {
     <div className="flex min-h-screen w-full max-w-[1200px] items-center justify-center">
       <div className="flex w-full flex-col items-center gap-11 text-center">
         <span
-          className={`${instrument.className} text-[80px] leading-[90px] text-white`}
+          className={`${instrument.className} text-[80px] leading-[88px] text-white`}
         >
           How It Works
         </span>
