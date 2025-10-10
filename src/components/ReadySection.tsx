@@ -21,7 +21,7 @@ const ReadySection: React.FC = () => {
           className="object-contain"
         />
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-11 text-center">
+      <div className="z-10 flex w-full flex-col items-center justify-center gap-11 text-center">
         <p
           className={`${instrument.className} max-w-[900px] text-[80px] leading-[90px] text-white`}
         >
