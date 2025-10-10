@@ -11,6 +11,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Trove",
   description: "Trove",
+  icons: {
+    icon: [{ url: "/icons/small-logo.svg" }],
+    apple: [{ url: "/icons/small-logo.svg" }],
+  },
 };
 
 export default function RootLayout({
