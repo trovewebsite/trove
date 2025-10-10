@@ -1,6 +1,7 @@
 import React from "react";
 import { Instrument_Serif } from "next/font/google";
 import Card from "./Card";
+import Image from "next/image";
 
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -10,7 +11,14 @@ const instrument = Instrument_Serif({
 
 const LiquidMarketsSection: React.FC = () => {
   return (
-    <div className="flex min-h-screen w-full max-w-[990px] items-center justify-center">
+    <div className="relative flex min-h-screen w-full max-w-[990px] items-center justify-center">
+      <Image
+        src="/icons/star01.svg"
+        alt="star"
+        width={69}
+        height={66}
+        className="absolute -top-6 left-50 -z-10 object-contain"
+      />
       <div className="flex w-full flex-col items-center gap-11 text-center">
         <span
           className={`${instrument.className} text-[80px] leading-[90px] text-white`}

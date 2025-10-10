@@ -10,7 +10,14 @@ const instrument = Instrument_Serif({
 
 const TradingInterfaceSection: React.FC = () => {
   return (
-    <div className="flex min-h-screen w-full max-w-[1278px] items-center justify-center">
+    <div className="relative flex min-h-screen w-full max-w-[1278px] items-center justify-center">
+      <Image
+        src="/icons/star02.svg"
+        alt="star"
+        width={69}
+        height={66}
+        className="absolute -top-4 left-100 -z-10 object-contain"
+      />
       <div className="flex w-full flex-col items-center justify-center gap-11 text-center">
         <p
           className={`${instrument.className} max-w-[500px] text-[80px] leading-[90px] text-white`}

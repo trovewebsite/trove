@@ -1,6 +1,7 @@
 import React from "react";
 import { Instrument_Serif } from "next/font/google";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -10,7 +11,16 @@ const instrument = Instrument_Serif({
 
 const ReadySection: React.FC = () => {
   return (
-    <div className="flex min-h-screen w-full max-w-[1278px] items-center justify-center">
+    <div className="relative flex min-h-screen w-full max-w-[1278px] items-center justify-center">
+      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <Image
+          src="/icons/star03.png"
+          alt="star"
+          width={1160}
+          height={590}
+          className="object-contain"
+        />
+      </div>
       <div className="flex w-full flex-col items-center justify-center gap-11 text-center">
         <p
           className={`${instrument.className} max-w-[900px] text-[80px] leading-[90px] text-white`}
