@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 
 // custom components
@@ -112,9 +113,8 @@ export default function Home() {
             if (ctx) ctx._wheel = onWheel;
           }
         });
-      } catch (err) {
+      } catch {
         // swallow import errors in environments without window or gsap
-        // console.warn("GSAP dynamic import failed:", err);
       }
     })();
 
@@ -129,7 +129,7 @@ export default function Home() {
         if (ST && typeof ST.getAll === "function") {
           ST.getAll().forEach((s: any) => s.kill && s.kill());
         }
-      } catch (e) {
+      } catch {
         // ignore cleanup errors during unmount
       }
     };
