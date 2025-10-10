@@ -89,14 +89,58 @@ const TradeSection: React.FC = () => {
           const primaries = container.querySelectorAll(".ts-primary");
           if (primaries && primaries.length) {
             primaries.forEach((primary) => {
-              const enter = () =>
+              // base scale handlers
+              const enterScale = () =>
                 gsapAny.to(primary, { scale: 1.05, duration: 0.12 });
-              const leave = () =>
+              const leaveScale = () =>
                 gsapAny.to(primary, { scale: 1, duration: 0.12 });
-              const onFocus = () =>
+              const focusScale = () =>
                 gsapAny.to(primary, { scale: 1.03, duration: 0.12 });
-              const onBlur = () =>
+              const blurScale = () =>
                 gsapAny.to(primary, { scale: 1, duration: 0.12 });
+
+              // enhanced handlers for outlined buttons
+              let enter: EventListenerOrEventListenerObject = enterScale;
+              let leave: EventListenerOrEventListenerObject = leaveScale;
+              let onFocus: EventListenerOrEventListenerObject = focusScale;
+              let onBlur: EventListenerOrEventListenerObject = blurScale;
+
+              if (primary.classList.contains("ts-outline")) {
+                enter = () => {
+                  gsapAny.to(primary, {
+                    scale: 1.03,
+                    backgroundColor: "rgba(255,255,255,0.95)",
+                    color: "#000",
+                    borderColor: "rgba(255,255,255,0.95)",
+                    duration: 0.18,
+                  });
+                };
+                leave = () => {
+                  gsapAny.to(primary, {
+                    scale: 1,
+                    backgroundColor: "transparent",
+                    color: "",
+                    borderColor: "",
+                    duration: 0.18,
+                  });
+                };
+                onFocus = () => {
+                  gsapAny.to(primary, {
+                    scale: 1.03,
+                    backgroundColor: "rgba(255,255,255,0.95)",
+                    color: "#000",
+                    duration: 0.12,
+                  });
+                };
+                onBlur = () => {
+                  gsapAny.to(primary, {
+                    scale: 1,
+                    backgroundColor: "transparent",
+                    color: "",
+                    duration: 0.12,
+                  });
+                };
+              }
 
               primary.addEventListener("mouseenter", enter);
               primary.addEventListener("mouseleave", leave);
@@ -170,7 +214,7 @@ const TradeSection: React.FC = () => {
             Launch App
           </Button>
           <Button
-            className="ts-primary text-primary-foreground border-primary h-full text-base"
+            className="ts-primary ts-outline text-primary-foreground border-primary h-full text-base"
             variant="outline"
             onClick={() => {}}
           >
