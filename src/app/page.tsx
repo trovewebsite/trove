@@ -8,6 +8,7 @@ import TradeSection from "@/components/TradeSection";
 import TradeInsightSection from "@/components/TradeInsightSection";
 import LiquidMarketsSection from "@/components/LiquidMarketsSection";
 import GuideSection from "@/components/GuideSection";
+import TradingInterfaceSection from "@/components/TradingInterfaceSection";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <TradeInsightSection />
         <LiquidMarketsSection />
         <GuideSection />
+        <TradingInterfaceSection />
       </div>
     </div>
   );
